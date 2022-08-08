@@ -9,6 +9,7 @@ const configs = clientFiles.map(f => ({
   entryPoints: [ path.resolve(__dirname, '..', 'build/client', f) ],
   bundle: true,
   minify: true,
+  sourcemap: true,
   format: 'esm',
   target: 'safari11',
   outfile: path.resolve(__dirname, '..', 'dist/client', f),
