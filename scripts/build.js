@@ -9,7 +9,7 @@ const configs = clientFiles.map(f => ({
   entryPoints: [ path.resolve(__dirname, '..', 'build/client', f) ],
   bundle: true,
   minify: true,
-  sourcemap: true,
+  sourcemap: false, // FIXME: `true` does not work, because peertube does not serve sttic files.
   format: 'esm',
   target: 'safari11',
   outfile: path.resolve(__dirname, '..', 'dist/client', f),

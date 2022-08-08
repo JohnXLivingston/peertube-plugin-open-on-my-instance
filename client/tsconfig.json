@@ -13,6 +13,7 @@
 		"noImplicitReturns": true,
 		"strictBindCallApply": true, // should already be true because of strict:true
 		"noUnusedLocals": true,
+		"allowSyntheticDefaultImports": true, // Seems necessary for peertube types to work
     "outDir": "../build/client",
 		"paths": {}
 	},
