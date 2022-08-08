@@ -10,9 +10,9 @@
   "bugs": "https://github.com/JohnXLivingston/peertube-plugin-open-on-my-instance/issues",
   "clientScripts": [
     {
-      "script": "dist/client/common-client-plugin.js",
+      "script": "dist/client/video-watch.js",
       "scopes": [
-        "common"
+        "video-watch"
       ]
     }
   ],
@@ -30,7 +30,7 @@
   ],
   "library": "./dist/server/main.js",
   "scripts": {
-    "clean": "rm -rf dist/*",
+    "clean": "rm -rf dist/* build/*",
     "prepare": "npm run build",
     "build:server": "npx tsc --build server/tsconfig.json",
     "build:tsc": "npx tsc --build client/tsconfig.json",
