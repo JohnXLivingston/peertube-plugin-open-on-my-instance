@@ -1,3 +1,3 @@
-# PeerTube plugin Quickstart
+# PeerTube plugin open-on-my-instance
 
-See https://docs.joinpeertube.org/#/contribute-plugins?id=write-a-plugintheme
+TODO: describe the plugin
