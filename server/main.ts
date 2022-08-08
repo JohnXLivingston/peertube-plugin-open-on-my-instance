@@ -1,11 +1,10 @@
-// import { RegisterServerOptions } from '@peertube/peertube-types'
+// import type { RegisterServerOptions } from '@peertube/peertube-types'
 
-async function register ({}) {
+async function register (): Promise<any> {
 
 }
 
-async function unregister () {
-  return
+async function unregister (): Promise<any> {
 }
 
 module.exports = {
