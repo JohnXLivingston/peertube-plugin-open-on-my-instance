@@ -19,7 +19,7 @@
   "plugins": [
       "@typescript-eslint"
   ],
-  "ignorePatterns": ["build", "dist", "node_modules", "scripts"],
+  "ignorePatterns": ["dist", "node_modules", "scripts"],
   "rules": {
       "@typescript-eslint/no-unused-vars": [2, {"argsIgnorePattern": "^_"}],
       "@typescript-eslint/no-floating-promises": "error",
