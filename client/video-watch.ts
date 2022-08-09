@@ -12,17 +12,20 @@ async function addButton ({ video }: VideoWatchLoadedHookOptions): Promise<void>
   if (video.isLocal) {
     return
   }
-  // The video is remote, we must add the button.
-  console.log('[open-on-my-instance] The current video is remote, adding the button...')
-  // FIXME: use a Peertube placeholder
-  const openButton = document.createElement('a')
-  openButton.textContent = 'Open'
-  openButton.classList.add('icon-text')
 
-  const placeholder = document.getElementById('plugin-placeholder-player-next')
-  placeholder?.append(openButton)
+  setTimeout(() => {
+    // The video is remote, we must add the button.
+    console.log('[open-on-my-instance] The current video is remote, adding the button...')
+    // FIXME: use a Peertube placeholder
+    const openButton = document.createElement('a')
+    openButton.textContent = 'Open'
+    openButton.classList.add('icon-text')
 
-  console.log('[open-on-my-instance] The button was added.')
+    const placeholder = document.getElementsByTagName('my-video-rate')
+    placeholder[0]?.before(openButton)
+
+    console.log('[open-on-my-instance] The button was added.')
+  }, 1000)
 }
 
 function cleanDom (): void {
