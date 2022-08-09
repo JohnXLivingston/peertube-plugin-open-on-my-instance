@@ -30,12 +30,12 @@
   ],
   "library": "./dist/server/main.js",
   "scripts": {
-    "clean": "rm -rf dist/* build/*",
+    "clean": "rm -rf dist/*",
     "prepare": "npm run build",
+    "check:client:tsc": "npx tsc --p client/tsconfig.json --noEmit",
     "build:server": "npx tsc --build server/tsconfig.json",
-    "build:tsc": "npx tsc --build client/tsconfig.json",
     "build:client": "node ./scripts/build.js",
-    "build": "npm-run-all -s clean build:tsc -p build:server build:client",
+    "build": "npm-run-all -s clean check:client:tsc -p build:server build:client",
     "lint:script": "npx eslint --ext .ts --ext .js .",
     "test": "npm-run-all -s lint:script"
   },
