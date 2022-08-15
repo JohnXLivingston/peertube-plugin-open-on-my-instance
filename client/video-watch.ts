@@ -24,24 +24,36 @@ function register (clientOptions: RegisterClientOptions): void {
 }
 
 async function addButton (options: RegisterClientOptions, { video }: VideoWatchLoadedHookOptions): Promise<void> {
+  const peertubeHelpers = options.peertubeHelpers
+
   console.log('[open-on-my-instance] addButton')
   if (video.isLocal) {
     return
   }
+
+  const openLabel = await peertubeHelpers.translate('Open')
+  const openTitle = await peertubeHelpers.translate('Open on my instance')
+
   // The video is remote, we must add the button.
-  setTimeout(() => {
-    console.log('[open-on-my-instance] The current video is remote, adding the button...')
-    // FIXME: use a Peertube placeholder
-    const openButton = document.createElement('a')
-    openButton.textContent = 'Open'
-    openButton.classList.add('action-button')
-    openButton.onclick = () => openModal(options, video)
+  const p: Promise<void> = new Promise((resolve, _reject) => {
+    setTimeout(() => {
+      console.log('[open-on-my-instance] The current video is remote, adding the button...')
+      // FIXME: use a Peertube placeholder
+      const openButton = document.createElement('a')
+      openButton.textContent = openLabel
+      openButton.title = openTitle
+      openButton.classList.add('action-button')
+      openButton.onclick = async () => openModal(options, video)
 
-    const placeholder = document.getElementsByTagName('my-video-rate')[0]
-    placeholder?.before(openButton)
+      const placeholder = document.getElementsByTagName('my-video-rate')[0]
+      placeholder?.before(openButton)
 
-    console.log('[open-on-my-instance] The button was added.')
-  }, 100)
+      console.log('[open-on-my-instance] The button was added.')
+      resolve()
+    }, 100)
+  })
+
+  return p
 }
 
 function cleanDom (): void {
@@ -49,9 +61,11 @@ function cleanDom (): void {
   // TODO: remove buttons?
 }
 
-function openModal ({ peertubeHelpers }: RegisterClientOptions, _video: Video): void {
+async function openModal ({ peertubeHelpers }: RegisterClientOptions, _video: Video): Promise<void> {
+  const title = await peertubeHelpers.translate('Open on my instance')
+
   peertubeHelpers.showModal({
-    title: 'Open on my instance',
+    title,
     content: '<p>Here we go!</p>',
     close: true
   })
