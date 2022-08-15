@@ -64,6 +64,9 @@ function cleanDom (): void {
 async function openModal ({ peertubeHelpers }: RegisterClientOptions, _video: Video): Promise<void> {
   const title = await peertubeHelpers.translate('Open on my instance')
 
+  const path = peertubeHelpers.getBaseRouterRoute()
+  console.log('The path is: ' + path)
+
   peertubeHelpers.showModal({
     title,
     content: '<p>Here we go!</p>',
