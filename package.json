@@ -35,7 +35,8 @@
     "check:client:tsc": "npx tsc --p client/tsconfig.json --noEmit",
     "build:server": "npx tsc --build server/tsconfig.json",
     "build:client": "node ./scripts/build.js",
-    "build": "npm-run-all -s clean check:client:tsc -p build:server build:client",
+    "build:modal": "npx tsc --build modal/tsconfig.json",
+    "build": "npm-run-all -s clean check:client:tsc -p build:server build:client build:modal",
     "lint:script": "npx eslint --ext .ts --ext .js .",
     "test": "npm-run-all -s lint:script"
   },

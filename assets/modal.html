@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <script src="./modal.js"></script>
+  </head>
   <body>
-    <form>
+    <ul saved_instances>
+    </ul>
+    <form instance_form>
       <label>
         What is your instance?
         <input type="url" list="instances">
@@ -12,5 +16,6 @@
         </datalist>
       </label>
     </form>
+    <script>window.initModal()</script>
   </body>
 </html>

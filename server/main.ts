@@ -12,6 +12,13 @@ async function register (options: RegisterServerOptions): Promise<any> {
     res.removeHeader('X-Frame-Options')
     res.sendFile(path.resolve(__dirname, '..', '..', 'assets', 'modal.html'))
   })
+
+  router.get('/modal/modal.js', (_req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'modal', 'modal.js'))
+  })
+  router.get('/modal/modal.js.map', (_req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'modal', 'modal.js.map'))
+  })
 }
 
 async function unregister (): Promise<any> {

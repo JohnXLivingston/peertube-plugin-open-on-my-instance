@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+    "module": "es6",
+		"moduleResolution": "node",
+    "target": "es5",
+    "allowJs": true,
+		"sourceMap": false,
+		"inlineSourceMap": true, // FIXME: using inline sourcemap for now, because the generated path is not correct
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"alwaysStrict": true, // should already be true because of strict:true
+		"noImplicitAny": true, // should already be true because of strict:true
+		"noImplicitThis": true, // should already be true because of strict:true
+		"noImplicitReturns": true,
+		"strictBindCallApply": true, // should already be true because of strict:true
+		"noUnusedLocals": true,
+		"allowSyntheticDefaultImports": true, // Seems necessary for peertube types to work
+    "outDir": "../dist/modal",
+		"paths": {}
+	},
+	"include": [
+		"./**/*"
+	],
+	"exclude": []
+}
