@@ -1,3 +1,4 @@
+import * as path from 'path'
 import type { RegisterServerOptions } from '@peertube/peertube-types'
 
 async function register (options: RegisterServerOptions): Promise<any> {
@@ -9,7 +10,7 @@ async function register (options: RegisterServerOptions): Promise<any> {
     res.status(200)
     res.type('html')
     res.removeHeader('X-Frame-Options')
-    res.send('<html><body>Here we go, but backend!</body></html>')
+    res.sendFile(path.resolve(__dirname, '..', '..', 'assets', 'modal.html'))
   })
 }
 
