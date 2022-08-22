@@ -8,6 +8,7 @@ async function register (options: RegisterServerOptions): Promise<any> {
   router.get('/modal/content', (_req, res) => {
     res.status(200)
     res.type('html')
+    res.removeHeader('X-Frame-Options')
     res.send('<html><body>Here we go, but backend!</body></html>')
   })
 }

@@ -64,14 +64,19 @@ function cleanDom (): void {
 async function openModal ({ peertubeHelpers }: RegisterClientOptions, _video: Video): Promise<void> {
   const title = await peertubeHelpers.translate('Open on my instance')
 
-  const path = peertubeHelpers.getBaseRouterRoute()
+  const path = peertubeHelpers.getBaseRouterRoute() + '/modal/content'
   console.log('The path is: ' + path)
 
   peertubeHelpers.showModal({
     title,
-    content: '<p>Here we go!</p>',
+    content: '<p class="open-on-my-instance-modal-content">Loading...</p>',
     close: true
   })
+
+  setTimeout(() => {
+    const content = document.querySelector('.open-on-my-instance-modal-content')
+    if (content) { content.innerHTML = '<iframe src="' + path + '"></iframe>' }
+  }, 100)
 }
 
 export {
