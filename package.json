@@ -22,7 +22,7 @@
   "engine": {
     "peertube": ">=4.2.0"
   },
-  "homepage": "https://github.com/JohnXLivingston/peertube-plugin-open-on-my-instance/issues",
+  "homepage": "https://github.com/JohnXLivingston/peertube-plugin-open-on-my-instance",
   "repository": "github:JohnXLivingston/peertube-plugin-open-on-my-instance",
   "keywords": [
     "peertube",
