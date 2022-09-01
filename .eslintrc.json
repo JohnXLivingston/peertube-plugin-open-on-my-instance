@@ -13,7 +13,8 @@
       "ecmaVersion": 2018,
       "project": [
           "./server/tsconfig.json",
-          "./client/tsconfig.json"
+          "./client/tsconfig.json",
+          "./modal/tsconfig.json"
       ]
   },
   "plugins": [
