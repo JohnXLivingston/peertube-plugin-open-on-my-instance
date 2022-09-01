@@ -1,3 +1,6 @@
-import { initOpenOnMyInstance } from 'open-on-my-instance'
+import { init } from 'open-on-my-instance'
 
-initOpenOnMyInstance().then(() => {}, () => {})
+const container: HTMLDivElement = document.querySelector('div[container]') as HTMLDivElement
+if (container) {
+  init(container).then(() => {}, () => {})
+}
