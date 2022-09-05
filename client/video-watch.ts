@@ -61,10 +61,10 @@ function cleanDom (): void {
   // TODO: remove buttons?
 }
 
-async function openModal ({ peertubeHelpers }: RegisterClientOptions, _video: Video): Promise<void> {
+async function openModal ({ peertubeHelpers }: RegisterClientOptions, video: Video): Promise<void> {
   const title = await peertubeHelpers.translate('Open on my instance')
 
-  const path = peertubeHelpers.getBaseRouterRoute() + '/modal/content'
+  let path = peertubeHelpers.getBaseRouterRoute() + '/modal/content'
   console.log('The path is: ' + path)
 
   peertubeHelpers.showModal({
@@ -75,6 +75,10 @@ async function openModal ({ peertubeHelpers }: RegisterClientOptions, _video: Vi
 
   setTimeout(() => {
     const content = document.querySelector('.open-on-my-instance-modal-content')
+    const uuid = video.uuid
+    const host = video.account.host
+    // Passing parameters as url anchor, for privacy reasons (do not send to the server!)
+    path = path + '#uuid=' + encodeURIComponent(uuid) + '&host=' + encodeURIComponent(host)
     if (content) { content.innerHTML = '<iframe src="' + path + '"></iframe>' }
   }, 100)
 }
