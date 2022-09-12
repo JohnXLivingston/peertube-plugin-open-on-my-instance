@@ -1,4 +1,6 @@
 {
   "Open": "Ouvrir",
-  "Open on my instance": "Ouvrir sur mon instance"
+  "Open on my instance": "Ouvrir sur mon instance",
+  "Iframe URL": "URL de l'iframe",
+  "The iframe to display in the dialog. Please read the documentation.": "L'iframe à afficher dans la fenêtre de dialogue. Merci de lire la documentation."
 }
