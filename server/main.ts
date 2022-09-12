@@ -19,6 +19,18 @@ async function register (options: RegisterServerOptions): Promise<any> {
   router.get('/modal/modal.js.map', (_req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'modal', 'modal.js.map'))
   })
+
+  registerSettings(options)
+}
+
+function registerSettings (options: RegisterServerOptions): void {
+  options.registerSetting({
+    private: false,
+    type: 'input',
+    name: 'iframe-url',
+    label: 'Iframe URL',
+    descriptionHTML: 'The iframe to display in the dialog. Please read the documentation.'
+  })
 }
 
 async function unregister (): Promise<any> {
