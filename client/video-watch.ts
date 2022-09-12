@@ -61,10 +61,27 @@ function cleanDom (): void {
   // TODO: remove buttons?
 }
 
+function readIframeURL (settings: any): URL | null {
+  if (!settings || typeof settings !== 'object') { return null }
+  if (!('iframe-url' in settings)) { return null }
+  if (!settings['iframe-url'] || typeof settings['iframe-url'] !== 'string') { return null }
+
+  let url: string = settings['iframe-url']
+  if (!/^https?:\/\//.test(url)) {
+    url = 'https://' + url
+  }
+  try {
+    return new URL('', url)
+  } catch (error) {
+    return null
+  }
+}
+
 async function openModal ({ peertubeHelpers }: RegisterClientOptions, video: Video): Promise<void> {
   const title = await peertubeHelpers.translate('Open on my instance')
 
-  let path = peertubeHelpers.getBaseRouterRoute() + '/modal/content'
+  const settings = await peertubeHelpers.getSettings()
+  let path = readIframeURL(settings)?.toString() ?? (peertubeHelpers.getBaseRouterRoute() + '/modal/content')
   console.log('The path is: ' + path)
 
   peertubeHelpers.showModal({
