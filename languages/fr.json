@@ -2,5 +2,9 @@
   "Open": "Ouvrir",
   "Open on my instance": "Ouvrir sur mon instance",
   "Iframe URL": "URL de l'iframe",
-  "The iframe to display in the dialog. Please read the documentation.": "L'iframe à afficher dans la fenêtre de dialogue. Merci de lire la documentation."
+  "The iframe to display in the dialog. Please read the documentation.": "L'iframe à afficher dans la fenêtre de dialogue. Merci de lire la documentation.",
+  "Directory URL": "URL de l'annuaire",
+  "The url to the Peertube instances directory to use.": "L'url vers l'annuaire des instances Peertube à utiliser.",
+  "Documentation": "Documentation",
+  "You can find the documentation for this plugins <a target=\"_blank\" href=\"https://github.com/JohnXLivingston/peertube-plugin-open-on-my-instance/blob/master/README.md\">here</a>.": "Vous pouvez trouver la documentation de ce plugin <a target=\"_blank\" href=\"https://github.com/JohnXLivingston/peertube-plugin-open-on-my-instance/blob/master/README.md\">ici</a>."
 }
